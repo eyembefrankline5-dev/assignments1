@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Franklin Care Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar glass-panel">
+            <h2>Admin Portal</h2>
+            <a href="admin-dashboard.html" class="active">Dashboard</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </aside>
+        <main class="dashboard-main">
+            <header class="page-heading">
+                <h2>Admin Dashboard</h2>
+                <p id="welcomeMessage">Loading...</p>
+            </header>
+            <div id="stats" class="glass-panel" style="padding: 20px;">
+                Total Patients: <span id="patientCount">0</span><br>
+                Total Doctors: <span id="doctorCount">0</span>
+            </div>
+        </main>
+    </div>
+    <script>
+        async function checkAuth() {
+            const res = await fetch('backend/api/auth.php?action=check');
+            const data = await res.json();
+            if (!data.success || data.role !== 'admin') {
+                window.location.href = 'login.html';
+            } else {
+                loadDashboard();
+            }
+        }
+
+        async function loadDashboard() {
+            const res = await fetch('backend/api/dashboard.php');
+            const data = await res.json();
+            if (data.success) {
+                document.getElementById('welcomeMessage').textContent = data.data.welcome_message;
+                document.getElementById('patientCount').textContent = data.data.total_patients;
+                document.getElementById('doctorCount').textContent = data.data.total_doctors;
+            }
+        }
+
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            await fetch('backend/api/auth.php?action=logout');
+            window.location.href = 'login.html';
+        });
+
+        checkAuth();
+    </script>
+</body>
+</html>
+

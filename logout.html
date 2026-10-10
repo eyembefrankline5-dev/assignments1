@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Management System - Logout</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Logout Page */
+        .logout-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .logout-card {
+            width: 100%;
+            max-width: 460px;
+            padding: 42px 38px;
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.62);
+            backdrop-filter: blur(30px) saturate(150%);
+            -webkit-backdrop-filter: blur(30px) saturate(150%);
+
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: 28px;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .logout-icon {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #1677ff;
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .logout-card h1 {
+            margin: 0;
+            font-size: 28px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .logout-card h2 {
+            margin: 12px 0 8px;
+            font-size: 22px;
+            font-weight: 650;
+            color: #111827;
+        }
+
+        .logout-subtitle {
+            margin: 0 0 28px;
+            color: #667085;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .logout-button {
+            width: 100%;
+            border: none;
+            border-radius: 14px;
+            padding: 14px 20px;
+
+            background: #1677ff;
+            color: white;
+
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+
+            box-shadow: 0 10px 25px rgba(22, 119, 255, 0.22);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .logout-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(22, 119, 255, 0.28);
+        }
+
+        .logout-button:active {
+            transform: translateY(0);
+        }
+
+        .logout-return {
+            margin-top: 22px;
+            font-size: 14px;
+            color: #667085;
+        }
+
+        .logout-return a {
+            color: #1677ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .logout-return a:hover {
+            text-decoration: underline;
+        }
+
+        .logout-security {
+            margin-top: 28px;
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(100, 116, 139, 0.15);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            color: #667085;
+            font-size: 13px;
+        }
+
+        .logout-security svg {
+            color: #1677ff;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 520px) {
+            .logout-page {
+                padding: 18px;
+            }
+
+            .logout-card {
+                padding: 34px 24px;
+                border-radius: 24px;
+            }
+
+            .logout-card h1 {
+                font-size: 24px;
+            }
+
+            .logout-card h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="logout-page">
+
+        <div class="logout-card">
+
+            <!-- Hospital Icon -->
+            <div class="logout-icon">
+                <svg
+                    width="34"
+                    height="34"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M9 3H15V9H21V15H15V21H9V15H3V9H9V3Z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+
+            <h1>Hospital Management System</h1>
+
+            <h2>Logout</h2>
+
+            <p class="logout-subtitle">
+                Are you sure you want to log out of your account?
+            </p>
+
+            <!-- Logout Button -->
+            <button
+                type="button"
+                class="logout-button"
+                onclick="window.location.href='login.html'"
+            >
+                Logout
+            </button>
+
+            <!-- Return to Dashboard -->
+            <p class="logout-return">
+                Changed your mind?
+                <a href="dashboard.html">Return to Dashboard</a>
+            </p>
+
+            <!-- Security Message -->
+            <div class="logout-security">
+
+                <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M12 3L20 6V11C20 16.5 16.5 20 12 21C7.5 20 4 16.5 4 11V6L12 3Z"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M9 12L11 14L15 10"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+                <span>Your session will be securely closed.</span>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

@@ -3,123 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portoflio</title>
+    <title>Franklin Care Center</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; margin: 20px; }
+        .nav-logo { font-size: 24px; font-weight: 700; color: #0071e3; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { color: #1d1d1f; font-weight: 500; transition: color 0.3s; text-decoration: none; }
+        .nav-links a:hover { color: #0071e3; }
+        .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 40px; margin: 20px; gap: 40px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; letter-spacing: -1px; }
+        .hero-text p { font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; line-height: 1.6; }
+        .hero-actions { display: flex; gap: 15px; }
+        .hero-image-container { flex: 1; padding: 15px; display: flex; justify-content: center; align-items: center; }
+        .hero-image-container img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .btn-primary { padding: 12px 24px; background: #0071e3; color: white; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 10px 20px rgba(0,113,227,0.2); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,113,227,0.3); }
+        .btn-glass { padding: 12px 24px; background: rgba(255,255,255,0.5); color: #1d1d1f; border-radius: 12px; text-decoration: none; font-weight: 600; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.8); transition: all 0.2s; }
+        .btn-glass:hover { background: rgba(255,255,255,0.8); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 20px 40px 20px; margin: 0 20px; }
+        .feature-card { padding: 25px; text-align: center; }
+        .feature-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
+        .feature-card h3 { margin-bottom: 10px; color: #1d1d1f; }
+        .feature-card p { color: #6e6e73; }
+        .about-section { display: flex; align-items: center; justify-content: space-between; padding: 40px; margin: 20px; gap: 40px; }
+        .about-text { flex: 1; }
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; color: #1d1d1f; }
+        .about-text p { font-size: 1.1rem; color: #6e6e73; margin-bottom: 20px; line-height: 1.6; }
+        .site-footer { padding: 40px; margin: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h3 { margin-bottom: 20px; color: #1d1d1f; }
+        .footer-col p, .footer-col ul { color: #6e6e73; line-height: 1.6; list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #6e6e73; text-decoration: none; transition: color 0.3s; }
+        .footer-col ul li a:hover { color: #0071e3; }
+        .footer-bottom { text-align: center; padding-top: 20px; margin-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); color: #86868b; grid-column: 1 / -1; }
+        
+        body { background: radial-gradient(circle at 10% 10%, rgba(0, 113, 227, 0.08), transparent 30%), radial-gradient(circle at 90% 10%, rgba(120, 180, 255, 0.1), transparent 28%), radial-gradient(circle at 50% 100%, rgba(215, 230, 255, 0.4), transparent 35%), #eef2f7; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+        .glass-panel { background: rgba(255,255,255,0.48); backdrop-filter: blur(28px) saturate(180%); border: 1px solid rgba(255,255,255,0.78); border-radius: 30px; box-shadow: 0 24px 60px rgba(31,41,55,0.05), inset 0 1px 0 rgba(255,255,255,0.9); }
+    </style>
 </head>
 <body>
-   <header>
-    <h1>Eyembe franklin</h1>
-     <button class="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-     </button>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+    <nav class="navbar glass-panel">
+        <div class="nav-logo">Franklin Care Center</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="login.html" class="btn-glass">Doctor Portal</a>
+            <a href="login.html" class="btn-primary">Patient Login</a>
+        </div>
     </nav>
-   </header>
-   
-   <section id="home">
-    <h2> Hello,I am <span>Eyembe Franklin</span></h2>
-    <P>Software Engineering student | Aspiring software Developer</P>
-    <a href="#projects" class="btn">view my work</a>
-   </section>
-   <section id="about">
-    <h2>About me</h2>
 
-    <p> 
-    I am a software Engineering student passionate about programming,software
-    Development and technology. I enjoy learning new skills and building useful projects.
-    </p>
-   </section>
-   <section id="skills">
-    <h2>My skills</h2>
-    <div class="skills-container">
-    <div class="skills">
-        <h3>HTML</h3>
-        <P>Building the structure of websites.</P>
-    </div>
-
-    <div class="skills">
-        <h3>CSS</h3>
-        <P>Designing and styling websites.</P>
-    </div>
-
-    <div class="skills">
-        <h3> C programming</h3>
-        <p>learning programming and problem solving.</p>
-    </div>
-    <div class="skills">
-        <h3>Python</h3>
-        <p>learning programming and software Development.</p>
-    </div>
-
-    </div>
-   </section>
-   <section id="projects">
-    <h2>My project</h2>
-
-    <div class="project-container">
-
-        <div class="project">
-            <h3>portoflio websites</h3>
-            <p> A personal portoflio website built with HTML and CSS 
-                   to showcase my skills and experience.
-            </p>
+    <header class="hero-section glass-panel">
+        <div class="hero-text">
+            <h1>Modern Healthcare.<br>Centered Around You.</h1>
+            <p>Franklin Care Center provides patient-focused healthcare services supported by modern digital technology. Experience seamless booking, digital records, and world-class professionals.</p>
+            <div class="hero-actions">
+                <a href="signup.html" class="btn-primary">Patient Sign Up</a>
+                <a href="login.html" class="btn-glass">Patient Login</a>
+            </div>
         </div>
-        <div class="Projects">
-            <h3>My future project</h3>
-            <p> More software projects will be added here as I continue
-                learning and developing.
-            </p>
+        <div class="hero-image-container glass-panel">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1000&auto=format&fit=crop" alt="Modern Hospital Team">
         </div>
+    </header>
 
-    </div>
-   </section>
-   <section id="contact">
-    <h2>Contact me</h2>
+    <section class="features-grid" id="services">
+        <div class="feature-card glass-panel">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e594b?q=80&w=600&auto=format&fit=crop" alt="Experienced Professionals">
+            <h3>Experienced Professionals</h3>
+            <p>Our dedicated doctors provide top-tier medical consultations and specialized treatments.</p>
+        </div>
+        <div class="feature-card glass-panel">
+            <img src="https://images.unsplash.com/photo-1551076805-e18690c5e561?q=80&w=600&auto=format&fit=crop" alt="Digital Medical Records">
+            <h3>Digital Medical Records</h3>
+            <p>Secure, centralized access to comprehensive histories and laboratory results anytime, anywhere.</p>
+        </div>
+        <div class="feature-card glass-panel">
+            <img src="https://images.unsplash.com/photo-1538108149393-cebb47acdd4e?q=80&w=600&auto=format&fit=crop" alt="Easy Appointment Booking">
+            <h3>Easy Appointment Booking</h3>
+            <p>Schedule visits instantly through our modern patient portal without the hassle of long queues.</p>
+        </div>
+    </section>
 
-    <p> I do love to hear from you. You can reach me through:</p>
-    <p>Email:eyembefrankline5@gmail.com</p>
-    <p> Let's connect and buid something great together.</p>
-   </section>
-   <section id="projects">
-    <h2> My projects</h2>
-    <div class="project-card">
-        <h3>Personal porfolio Website</h3>
-        <p> A personal porfolio website built with HTML and CSS
-            TO showcase my skills and experience.
-        </p>
-    </div>
+    <section class="about-section glass-panel" id="about">
+        <div class="about-image-container glass-panel">
+            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1000&auto=format&fit=crop" alt="Hospital Building">
+        </div>
+        <div class="about-text">
+            <h2>Why Choose Us</h2>
+            <p>At Franklin Care Center, we put patient care first. We believe in combining state-of-the-art technology with compassionate care to deliver the best health outcomes for our patients.</p>
+            <p>Our modern facilities, convenient medicine requests, and digital access ensure that every patient receives personalized, cutting-edge treatment.</p>
+        </div>
+    </section>
 
-    <div class="project-card">
-        <h3>Future Project</h3>
-        <p>More software projects will be added here as i continue
-            learning and developing my skills.
-        </p>
-    </div>
-   </section>
-   <section id="contact">
-    <h2> Contact me</h2>
-    <p>Email: <a href="mail to:eyembefrankline5@gmail.com">eyembefrankline5@gmail.com</a></p>
-
-    <p> phone: <a href="tel: +237681467006">+237681467006</a></p>
-    <p>Feel free to contact me for any project or opportunity.</p>
-   </section>
-   <footer>
-    <p> copyright 2026 Eyembe franklin. All rights reserved.</p>
-   </footer>
-   <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-      const nav = document.querySelector("nav");
-
-      menuToggle.addEventListener("click",function() {
-        nav.classList.toggle("active");
-      });
-   </script>
+    <footer class="site-footer glass-panel" id="contact">
+        <div class="footer-col">
+            <h3>Franklin Care Center</h3>
+            <p>Patient care first. Providing world-class healthcare solutions with modern technology.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="signup.html">Patient Registration</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <ul>
+                <li>📍 Buea, Cameroon</li>
+                <li>📞 +237 678 888 88</li>
+                <li>✉️ eyembefrankline5@gmail.com</li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Franklin Care Center. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
+

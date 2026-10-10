@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Franklin Care Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar glass-panel">
+            <h2>Patient Portal</h2>
+            <a href="patient-dashboard.html" class="active">Dashboard</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </aside>
+        <main class="dashboard-main">
+            <header class="page-heading">
+                <h2>My Dashboard</h2>
+                <p id="welcomeMessage">Loading...</p>
+            </header>
+            <div id="stats" class="glass-panel" style="padding: 20px;">
+                Appointments: <span id="appCount">0</span>
+            </div>
+        </main>
+    </div>
+    <script>
+        async function checkAuth() {
+            const res = await fetch('backend/api/auth.php?action=check');
+            const data = await res.json();
+            if (!data.success || data.role !== 'patient') {
+                window.location.href = 'login.html';
+            } else {
+                loadDashboard();
+            }
+        }
+
+        async function loadDashboard() {
+            const res = await fetch('backend/api/dashboard.php');
+            const data = await res.json();
+            if (data.success) {
+                document.getElementById('welcomeMessage').textContent = data.data.welcome_message;
+                document.getElementById('appCount').textContent = data.data.appointments_count;
+            }
+        }
+
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            await fetch('backend/api/auth.php?action=logout');
+            window.location.href = 'login.html';
+        });
+
+        checkAuth();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration - Franklin Care Center</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; color: #1d1d1f; background: radial-gradient(circle at 15% 15%, rgba(255,255,255,.95), transparent 30%), radial-gradient(circle at 85% 20%, rgba(180,210,255,.40), transparent 35%), radial-gradient(circle at 50% 100%, rgba(220,230,245,.55), transparent 42%), #eef2f7; }
+        .login-container { width: 100%; max-width: 500px; padding: 38px 34px; background: rgba(255,255,255,.48); backdrop-filter: blur(28px) saturate(180%); border: 1px solid rgba(255,255,255,.78); border-radius: 30px; box-shadow: 0 24px 60px rgba(31,41,55,.12), inset 0 1px 0 rgba(255,255,255,.9); text-align: center; }
+        .brand-icon { width: 62px; height: 62px; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; border-radius: 20px; background: rgba(0,113,227,.10); border: 1px solid rgba(255,255,255,.8); color: #0071e3; }
+        .brand-icon svg { width: 31px; height: 31px; stroke: currentColor; }
+        .login-container h1 { margin: 0; font-size: 23px; font-weight: 700; letter-spacing: -.6px; }
+        .login-container h2 { margin: 28px 0 7px; font-size: 28px; font-weight: 700; letter-spacing: -.8px; }
+        .subtitle { margin: 0 0 28px; color: #6e6e73; font-size: 14px; }
+        form { text-align: left; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label { display: block; margin-bottom: 7px; color: #48484a; font-size: 12px; font-weight: 600; }
+        .input-wrapper input, .input-wrapper select { width: 100%; padding: 12px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,.85); background: rgba(255,255,255,.68); color: #1d1d1f; font-size: 14px; outline: none; transition: .25s ease; box-sizing: border-box; }
+        .input-wrapper input:focus, .input-wrapper select:focus { border-color: rgba(0,113,227,.35); background: rgba(255,255,255,.82); box-shadow: 0 0 0 4px rgba(0,113,227,.08); }
+        .login-btn { width: 100%; margin-top: 15px; padding: 14px 18px; border: none; border-radius: 15px; background: rgba(0,113,227,.94); color: white; font-size: 14px; font-weight: 600; cursor: pointer; transition: .25s ease; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,113,227,.25); }
+        .signup-text { margin: 23px 0 0; color: #6e6e73; font-size: 13px; text-align: center; }
+        .signup-text a { color: #0071e3; text-decoration: none; font-weight: 600; }
+        #errorMsg { color: red; font-size: 13px; text-align: center; margin-bottom: 10px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M3 12h18"></path><rect x="4" y="4" width="16" height="16" rx="4"></rect></svg>
+        </div>
+        <h1>Franklin Care Center</h1>
+        <h2>Create Account</h2>
+        <p class="subtitle">Join our patient portal</p>
+        
+        <div id="errorMsg"></div>
+        
+        <form id="signupForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <div class="input-wrapper"><input type="text" id="first_name" required></div>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <div class="input-wrapper"><input type="text" id="last_name" required></div>
+                </div>
+                <div class="form-group full">
+                    <label>Email Address</label>
+                    <div class="input-wrapper"><input type="email" id="email" required></div>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-wrapper"><input type="password" id="password" required></div>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <div class="input-wrapper"><input type="password" id="confirm_password" required></div>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <div class="input-wrapper"><input type="date" id="dob" required></div>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="input-wrapper">
+                        <select id="gender" required>
+                            <option value="">Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full">
+                    <label>Phone Number</label>
+                    <div class="input-wrapper"><input type="tel" id="phone" required></div>
+                </div>
+            </div>
+            <button type="submit" class="login-btn">Sign Up</button>
+        </form>
+        <p class="signup-text">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            const confirm_password = document.getElementById('confirm_password').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
+            if (password !== confirm_password) {
+                errorMsg.textContent = "Passwords do not match.";
+                errorMsg.style.display = 'block';
+                return;
+            }
+            if (password.length < 6) {
+                errorMsg.textContent = "Password must be at least 6 characters.";
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            const data = {
+                email: document.getElementById('email').value,
+                password: password,
+                first_name: document.getElementById('first_name').value,
+                last_name: document.getElementById('last_name').value,
+                gender: document.getElementById('gender').value,
+                dob: document.getElementById('dob').value,
+                phone: document.getElementById('phone').value
+            };
+
+            try {
+                const res = await fetch('backend/api/auth.php?action=register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                const rawText = await res.text();
+                console.log("Raw Server Response:", rawText);
+                
+                let result;
+                try {
+                    result = JSON.parse(rawText);
+                } catch (parseErr) {
+                    throw new Error("Server returned invalid JSON. Raw response: " + rawText.substring(0, 100));
+                }
+                
+                if (result.success) {
+                    alert('Registration successful! Please log in.');
+                    window.location.href = 'login.html';
+                } else {
+                    errorMsg.textContent = result.message || 'Registration failed.';
+                    errorMsg.style.display = 'block';
+                }
+            } catch (err) {
+                console.error(err);
+                errorMsg.textContent = "Error: " + err.message;
+                errorMsg.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
